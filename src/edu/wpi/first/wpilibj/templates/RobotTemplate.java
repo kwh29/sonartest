@@ -53,7 +53,7 @@ public class RobotTemplate extends SimpleRobot {
             
             if (inches <= 60 && inches >= 48) {
                 fire = true;
-            } else if (inches  <= 216 && inches >= 228) {
+            } else if (inches  <= 228 && inches >= 216) {
                 fire = true;
             } else {
                 fire = false;
