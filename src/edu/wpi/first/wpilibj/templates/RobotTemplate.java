@@ -11,6 +11,7 @@ package edu.wpi.first.wpilibj.templates;
 import edu.wpi.first.wpilibj.AnalogChannel;
 import edu.wpi.first.wpilibj.SimpleRobot;
 import edu.wpi.first.wpilibj.Timer;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -50,13 +51,18 @@ public class RobotTemplate extends SimpleRobot {
             cm = sonarSensor.getAverageVoltage() / .0049;
             inches = cm / 2.54;
             
-            if (inches <= 87) {
+            if (inches <= 60 && inches >= 48) {
+                fire = true;
+            } else if (inches  <= 216 && inches >= 228) {
                 fire = true;
             } else {
                 fire = false;
             }
             
             System.out.println(inches);
+            
+            SmartDashboard.putNumber("Distance", inches);
+            SmartDashboard.putBoolean("Fire", fire);
             
         Timer.delay(0.01);
         }
